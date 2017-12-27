@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.container{
+			display:grid;
+			grid-template-columns:40px 50px 20px 50px 40px;
+			 /*grid-template-columns: repeat(3, 120px [col-start]) 5%;*/
+			grid-template-rows:30% 30% 40%;
+			 /*grid-template-columns: 1fr 1fr 1fr 20px;*/
+			width: 500px;
+			height:300px;
+			border:1px solid red;
+			/*justify-items:start;*/
+		}
+		.item{
+			border:1px solid green;
+			/*width:20px;*/
+			background-color: #499df1;
+		}
+	</style>
+</head>
+<body>
+	<h1>grid</h1>
+
+	<div class="container">
+	  <div class="item item-1"></div>
+	  <div class="item item-2"></div>
+	  <div class="item item-3"></div>
+	  <div class="item item-1"></div>
+	  <div class="item item-2"></div>
+	  <div class="item item-3"></div>
+	  <div class="item item-1"></div>
+	  <div class="item item-2"></div>
+	  <div class="item item-3"></div>
+	  <div class="item item-1"></div>
+	  <div class="item item-2"></div>
+	  <div class="item item-3"></div>
+	  
+	</div>
+	<h1>grid-template-areas</h1>
+	<style>
+		.item-a{
+		  grid-area: header;
+		  background-color: #499df1;
+		}
+		.item-b{
+		  grid-area: main;
+		  background-color: yellow;
+
+		}
+		.item-c{
+		  grid-area: sidebar;
+		  background-color: red;
+		}
+		.item-d{
+		  grid-area: footer;
+		  background-color: green;
+		}
+		.container-1{
+		    display:grid;
+			height:300px;
+			border:1px solid red;
+		    grid-template-columns: 50px 50px 50px 50px;
+		    grid-template-rows: auto;
+		    grid-template-areas: "header header header sidebar"
+		                         "main main . sidebar"
+		                         "footer footer footer footer"
+		}
+
+	</style>
+
+	<div class="container-1">
+	  <div class="item item-a">123</div>
+	  <div class="item item-b"></div>
+	  <div class="item item-c"></div>
+	  <div class="item item-d"></div>
+	  <div class="item item-a">233</div>
+	  <div class="item item-a" style='z-index:12'>45</div>
+	  <div class="item item-a">555</div>
+	</div>
+	<h1>grid-column-gap 和 grid-row-gap</h1>
+	<style>
+		.item-a1{
+		  background-color: #499df1;
+		}
+		.item-b1{
+		  background-color: yellow;
+
+		}
+		.item-c1{
+		  background-color: red;
+		}
+		.item-d1{
+		  background-color: green;
+		}
+		.container-gap{
+		    display:grid;
+		    height: 250px;
+		    grid-template-columns: 100px 50px 100px;
+		    grid-template-rows: 80px auto 80px; 
+		    grid-column-gap: 10px;
+		    grid-row-gap: 15px;
+		}
+
+
+	</style>
+
+	<div class="container-gap">
+	  <div class="item item-a1"></div>
+	  <div class="item item-b1"></div>
+	  <div class="item item-c1"></div>
+	  <div class="item item-a1"></div>
+	  <div class="item item-b1"></div>
+	  <div class="item item-c1"></div>
+	  <div class="item item-a1"></div>
+	  <div class="item item-b1"></div>
+	  <div class="item item-c1"></div>
+
+	</div>
+
+	<h1>justify-items</h1>
+	<style>
+		.item-a1{
+			width: 80px;
+		  background-color: #499df1;
+		}
+		.item-b1{
+			width: 30px;
+		  background-color: yellow;
+
+		}
+		.item-c1{
+			width: 80px;
+		  background-color: red;
+		}
+		.item-d1{
+		  background-color: green;
+		}
+		.container-gap1{
+		    display:grid;
+		    height: 250px;
+		    width: 250px;
+		    border:1px solid red;
+		    grid-template-columns: 100px 50px 100px;
+		    grid-template-rows: 80px auto 80px; 
+		    /*grid-column-gap: 10px;*/
+		    justify-items: start;
+		}
+
+
+	</style>
+
+	<div class="container-gap1">
+	  <div class="item item-a1"></div>
+	  <div class="item item-b1"></div>
+	  <div class="item item-c1"></div>
+	  <div class="item item-a1"></div>
+	  <div class="item item-b1"></div>
+	  <div class="item item-c1"></div>
+	  <div class="item item-a1"></div>
+	  <div class="item item-b1"></div>
+	  <div class="item item-c1"></div>
+
+	</div>
+	
+</body>
+</html>

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body{
+			margin:20px 10px;
+		}
+		.flexbox-wrap{
+		    width:550px;
+		    display: flex;
+		    margin-bottom: 50px;
+		}
+		.flexbox-item{
+			height: 40px;
+			line-height: 40px;
+			color:#fff;
+		}
+		.flexbox-item:nth-child(1){
+			 width:60px;
+		        flex-grow: 1;
+		        flex-shrink: 1;
+		        background-color: rgba(175, 20 , 35 ,1);
+		}
+		.flexbox-item:nth-child(2){
+			width:70px;
+		    flex-grow: 2;
+		    flex-shrink: 2;
+		    background-color: rgba(140, 40, 70,1);
+		}
+		.flexbox-item:nth-child(3){
+			flex-basis:80px;
+		        flex-grow: 3;
+		        flex-shrink: 3;
+		        background-color: rgba(105, 60,105,1);
+		}
+		.flexbox-item:nth-child(4){
+			flex-basis:90px;
+		        flex-grow: 4;
+		        flex-shrink: 4;
+		        background-color: rgba(70,80, 135,1);
+		}
+		.flexbox-item:nth-child(5){
+			 flex-basis:100px;
+		        flex-grow: 5;
+		        flex-shrink: 5;
+		        background-color: rgba(35 ,100, 175,1);
+		}
+		.box-item{
+			height: 40px;
+			line-height: 40px;
+			color:#fff;
+		}
+		.box-item:nth-child(1){
+			 /*width:60px;*/
+		        background-color: rgba(175, 20 , 35 ,1);
+		}
+		.box-item:nth-child(2){
+		    background-color: rgba(140, 40, 70,1);
+		}
+		.box-item:nth-child(3){
+		        background-color: rgba(105, 60,105,1);
+		}
+		.box-item:nth-child(4){
+		        background-color: rgba(70,80, 135,1);
+		}
+		.box-item:nth-child(5){
+		        background-color: rgba(35 ,100, 175,1);
+		}
+		.context>span{
+			display:block;
+		}
+		.context{
+			margin-bottom: 150px;
+		}
+
+		.flexbox-wrap-flexible{
+		    width:250px;
+		    display: flex;
+		    margin-bottom: 50px;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<div id="extend">
+			<h1>flex扩展计算</h1>
+			<div class="flexbox-wrap">
+				<div class="flexbox-item">1</div>
+				<div class="flexbox-item">2</div>
+				<div class="flexbox-item">3</div>
+				<div class="flexbox-item">4</div>
+				<div class="flexbox-item">5</div>
+			</div>
+			<div class="context">
+				<span>项目容器宽度</span>
+				<span>container = 550</span>
+				<span>项目宽度或项目设置的flex-basis总和</span>
+				<span>itemSum = 60 + 70 + 80 + 90 + 100 = 400</span>
+				<span>第一个伸缩项目对应的flex-grow比例</span>
+				<span>flexRatio = 1 / ( 1 + 2 + 3 + 4 + 5 ) = 1/15</span>
+				<span>第一个伸缩项目扩展宽度</span>
+				<span>extendWidth = ( 550 - 400 ) * 1/15 = 10</span>
+				<span>第一个伸缩项目拉伸后的宽度</span>
+				<span>itemWidth = 60 + 10 = 70</span>
+			</div>
+		</div>
+		<div id="flexible">
+			<h1>flex伸缩计算</h1>
+			<div class="flexbox-wrap-flexible">
+				<div class="flexbox-item">1</div>
+				<div class="flexbox-item">2</div>
+				<div class="flexbox-item">3</div>
+				<div class="flexbox-item">4</div>
+				<div class="flexbox-item">5</div>
+			</div>
+			<div class="context">
+				<span>项目容器宽度</span>
+				<span>container = 250</span>
+				<span>项目宽度或项目设置的flex-basis总和</span>
+				<span>itemSum = 60 + 70 + 80 + 90 + 100 = 400</span>
+				<span>第一个伸缩项目对应的flex-shrink比例</span>
+				<span>flexRatio = (1*60) / (1*60+2*70+3*80+4*90+5*100) = 6/130</span>
+				<span> 第一个伸缩项目缩小宽度</span>
+				<span>extendWidth = ( 400 - 250 ) * 6/130 ≈ 6.922</span>
+				<span>第一个伸缩项目压缩后的宽度</span>
+				<span>itemWidth = 60 - 6.922 = 53.078</span>
+			</div>
+		</div>
+		<h1>flex缩写</h1>
+		<div id="flexExample">
+			<style>
+				.flexbox-wrap-initial>.item{
+					flex:initial;
+					/*width: 200px;*/
+					/*flex:0 1 auto*/
+				}
+				.flexbox-wrap{
+					background-color: #F6F6F6;
+				}
+			</style>
+			<h2>flex:init ==flex:0 1 auto</h2>
+			<div class="flexbox-wrap-initial flexbox-wrap">
+				<div class="item box-item ">1</div>
+				<div class="item box-item ">2</div>
+				<div class="item box-item ">3</div>
+				<div class="item box-item ">4</div>
+				<div class="item box-item ">5</div>
+			</div>
+			<style>
+				.flexbox-wrap-none>.item{
+					flex:none;
+					/*width: 200px;*/
+					/*flex:0 1 auto*/
+				}
+			</style>
+			<h2>flex:none==flex:0 0 auto</h2>
+			<div class="flexbox-wrap-none flexbox-wrap">
+				<div class="item box-item ">1</div>
+				<div class="item box-item ">2</div>
+				<div class="item box-item ">3</div>
+				<div class="item box-item ">4</div>
+				<div class="item box-item ">5</div>
+			</div>
+			<style>
+				.flexbox-wrap-auto>.item{
+					flex:auto;
+					/*width: 200px;*/
+					/*flex:0 1 auto*/
+				}
+			</style>
+			<h2>flex:auto == flex:1 1 auto</h2>
+			<div class="flexbox-wrap-auto flexbox-wrap">
+				<div class="item box-item ">1</div>
+				<div class="item box-item ">2</div>
+				<div class="item box-item ">3</div>
+				<div class="item box-item ">4</div>
+				<div class="item box-item ">5</div>
+			</div>
+			<style>
+				.flexbox-wrap-number>.item{
+					flex:1;
+					/*width: 200px;*/
+					/*flex:0 1 auto*/
+				}
+				.itemOne{
+					flex:3;
+					/*width: 200px;*/
+					/*flex:0 1 auto*/
+				}
+				.itemTwo{
+					flex:2;
+					/*width: 200px;*/
+					/*flex:0 1 auto*/
+				}
+			</style>
+			<h2>flex:number == flex:number 1 0%</h2>
+			<div class="flexbox-wrap-auto flexbox-wrap">
+				<div class="item box-item ">1</div>
+				<div class="item box-item ">2</div>
+				<div class="itemOne box-item ">3</div>
+				<div class="itemTwo box-item ">4</div>
+				<div class="item box-item ">5</div>
+			</div>
+			<h2 id="flexBasis">flex-basis:0%和flex-basis:auto</h2>
+			<h5>flex-basis:0% -> 宽度为内容所占据的大小</h5>
+			<h5>flex-basis:number -> 将覆盖自身设置的width，按照number计算</h5>
+			<h5>flex-basis:auto -> 如果以设置width值，按照width值计算，若没有设置，按照内容所占据的大小计算</h5>
+			<style>
+				.flexbox-wrap-basis-auto>.item{
+					width: 200px;
+					flex-basis:auto;
+					/*flex:0 1 auto*/
+				}
+				
+			</style>
+			<h2>flex-basis:auto</h2>
+			<div class="flexbox-wrap-basis-auto flexbox-wrap">
+				<div class="item box-item ">1</div>
+				<div class="item box-item ">2</div>
+				<div class="item box-item ">3</div>
+				<div class="item box-item ">4</div>
+				<div class="item box-item ">5</div>
+			</div>
+			<style>
+				.flexbox-wrap-basis-zero>.item{
+					width: 200px;
+					flex-basis:0%;
+					/*flex:0 1 auto*/
+				}
+				
+			</style>
+			<h2>flex-basis:0%</h2>
+			<div class="flexbox-wrap-basis-zero flexbox-wrap">
+				<div class="item box-item ">1</div>
+				<div class="item box-item ">2</div>
+				<div class="item box-item ">3</div>
+				<div class="item box-item ">4</div>
+				<div class="item box-item ">5</div>
+			</div>
+			<style>
+				.flexbox-wrap-basis-number>.item{
+					width: 200px;
+					flex-basis:300px;
+					/*flex:0 1 auto*/
+				}
+				
+			</style>
+			<h2>flex-basis:number</h2>
+			<div class="flexbox-wrap-basis-number flexbox-wrap">
+				<div class="item box-item ">1</div>
+				<div class="item box-item ">2</div>
+				<div class="item box-item ">3</div>
+				<div class="item box-item ">4</div>
+				<div class="item box-item ">5</div>
+			</div>
+		</div>
+	</div>
+	
+	
+</body>
+</html>
