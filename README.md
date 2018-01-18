@@ -58,6 +58,7 @@
     * [Vue生命周期](vue/lifecycle.md)
 * Node
     * [Node基础](node/basic.md)
+    * [Node学习计划](node/plan.md)
 * CSS
     * [CSS的发展](css/basic.md)
 
