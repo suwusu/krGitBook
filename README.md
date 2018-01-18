@@ -61,6 +61,8 @@
     * [Node学习计划](node/plan.md)
 * CSS
     * [CSS的发展](css/basic.md)
+* 重要的学习点
+    * [前端的一些学习重点](learn/main.md)
 
 -----
 * HTTP协议
