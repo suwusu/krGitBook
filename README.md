@@ -56,6 +56,8 @@
 * Vue
     * [Vue基础](vue/basic.md)
     * [Vue生命周期](vue/lifecycle.md)
+* Go
+    * [Adornment](go/adornment.md)
 * Node
     * [Node基础](node/basic.md)
     * [Node学习计划](node/plan.md)
